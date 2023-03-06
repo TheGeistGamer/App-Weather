@@ -1,0 +1,1358 @@
+:root {
+    font-family: 'Nunito', Helvetica, sans-serif;
+    --weatherBG: black url(/img/background/frozen-201495_1920.jpg);
+    --white: #fff;
+    --subTitulo: #adb5bd;
+    --bgArticulo: rgba(10, 5, 42, 0.7);
+    --bgIcon: rgba(0,53,102, 0.6);
+    --card1: rgba(90,24,154,0.6);
+    --card2: rgba(1,79,134,0.6);
+    --card3: rgba(238,155,0,0.6);
+    --card4: rgb(226,113,29,0.6);
+    --card5: rgba(174,32,18,0.6);
+    --card6: rgba(0,128,0,0.6);
+    --card7: rgba(255,71,126,0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Work on Firefox */
+    scrollbar-width: 0%;
+}
+ /* Work on Chrome, Edge, and Safary  */
+*::-webkit-scrollbar{
+    width: 0%;
+}
+body {
+    background: var(--weatherBG);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--white);
+}
+
+/* --- Precast --- */
+.fnt-1vw {
+    font-size: 1vw;
+}
+
+.fnt_1_2 {
+    font-size: 1.2vw;
+}
+
+.fnt-2vw {
+    font-size: 2vw;
+}
+
+/* -- Prefab de flex -- */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row-center {   /* Utiliza flex - row - center */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-row-center-jc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column-center-jc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row-sp-jc {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.ocultar {  
+    display: none;
+}
+
+/* --- Precast --- */
+.dashboard .fa-sun {
+    color: yellow;
+}
+
+.ocultar_dashboard {
+    display: none;
+}
+
+.showNavbarAside {
+    padding-top: 7px;
+}
+
+.nav-toggle-Aside {
+    font-size: 6vw;
+    display: block;
+    color: var(--white);
+    background: none;
+    border: none;
+}
+
+.showNavbarAside  a {
+    text-decoration: none;
+}
+
+/* -- Articulo de busqueda -- */
+.buscar {
+    height: 100vh;
+    width: 20vw;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: flex 0.3s;
+    overflow: auto;
+}
+
+ .buscar .title {
+    width: 90%;
+    margin: 30px 50px 30px 15px;
+}
+
+ .buscar .title a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.buscar .title .logo {
+    font-size: 1.9vw;
+    margin-left: 20px;
+}
+
+ /* -- Buscador de paises -- */
+.getCountry form {
+    margin: 4%
+}
+
+#mainLogo {
+    font-size: 2vw;
+}
+
+#search {
+    font-size: 1vw;    
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: var(--white);
+    border: none;
+    border: none transparent;
+}
+
+#search[type=text] {
+    background-color: #343a40;
+    border: none transparent;
+}
+
+#search::placeholder {
+    color: var(--subTitulo);
+    border: none transparent;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+/* -aside - cards de historial -  */
+.buscar .historial {
+    height: 90%;
+}
+
+.buscar .historial a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.buscar .historial .card {
+    border: 3px solid rgba(173, 181, 189, 0.3);
+    border-radius: 10px;
+    width: 90%;
+    margin: 0.5vw 1vw;
+    background-attachment: fixed;
+    background-size:auto;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.historial .card .tituloYtem {
+    padding: 0.8rem;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tituloYtem .pais h3 {
+    font-size: 1.2vw;
+    font-weight: lighter;
+    text-align: start;
+}
+.tituloYtem .pais h4 {
+    font-size: 1vw;
+    font-weight: lighter;
+    text-align: start;
+}
+
+.tituloYtem .temperatura h3{
+    font-size: 1.9vw;
+    font-weight: 300;
+    margin-right: 0.7rem;
+}
+
+.historial .card .info {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.historial .card .info span h4{
+    font-weight: lighter;
+    font-size: 0.7vw;
+    margin: 10px 10px ;
+}
+
+/*Icono de navbar*/
+.showNavbar {
+    left: 1rem;
+    top: 1rem;
+    font-size: 2.7vw;
+    display: none;
+    position: sticky;
+    position: -webkit-sticky;
+}
+
+
+/* -- Articulo de Dashboard -- */
+.dashboard {
+    width: 80vw;
+    align-self: stretch;
+    overflow-y: auto;
+}
+
+/* Informarmacion Principal  */
+.dashboard .mainInfo {
+    margin-top: 3%;
+}
+
+#pais {
+    font-size: 1.7vw;
+    font-style: normal;
+}
+
+#temp {
+    font-size: vw;
+    width: 100%;
+}
+
+
+/* -- Informacion principal -- */
+#city {
+    font-size: 2.5vw;
+    text-align: center;
+}
+
+#temp {
+    font-size: 3vw;
+    text-align: center;
+    width: 100%;
+}
+
+#estado {
+    font-size: 1.3vw;
+}
+
+.country {
+    width: 100%;
+}
+
+.mainInfo .moreInfo {
+    width: 100%;
+    padding-right: 13px;
+}
+
+.mainInfo .moreInfo .estado,
+.mainInfo .moreInfo .minYmax {
+    font-size: 1.3vw;
+    text-align: center;
+}
+
+
+/* -- Linea del tiempo en el dia -- */
+.dashboard .diaHistorial{
+    background-color: var(--bgArticulo);
+    margin: 2% auto;
+    border-radius: 10px;
+    width: auto;
+    max-width: 90%;
+}
+
+.carrusel {
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+
+.carrusel .card {
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+    justify-content: center;
+    margin: 0.4vw;
+    min-width: 60px;
+}
+
+.carrusel .card div {
+    display: flex;
+    justify-content: center;
+    font-size: 1vw;
+    margin: 9px 4px;
+    width: 100%;
+}
+
+/* -- Parte inferior del Dashboard --  */
+/* -- Seccion de informacion detallada -- */
+.inferiorBoard {
+    justify-content: space-between;
+    height: 50%;
+}
+
+/* Contenedor del lado izquierdo  */
+.Fmatriz {
+    margin-top: 3.1vh;
+    width: 65vw;
+    height: 41vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ .Fmatriz .container,
+ .Fmatriz .secContainer  {
+    height: 50vh;
+    width: 100%;
+    justify-content: center;
+}
+
+.card_dashboard {   /* Diseño principal de la card  */
+    background-color: var(--bgArticulo);
+    border-radius: 10px;
+    width: 10vw;
+    height: 8vw;
+    margin: 0.4rem;   
+}
+
+/* Titulo de la card  */
+.Fmatriz .titulo {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.Fmatriz .titulo span h4 {
+    font-size: 0.9vw;
+    padding: 10px;
+}   
+
+.Fmatriz .main {
+    font-size: 1vw; /* Funte de los icnonos */
+    margin-top: 3.6vh;
+}
+
+/* Color de los titulos de la primera fila */
+.card_dashboard_bg_1 {
+    background-color:var(--card1);
+}
+.card_dashboard_bg_2 {
+    background-color: var(--card2);
+} 
+.card_dashboard_bg_3 {
+    background-color: var(--card3);
+} 
+.card_dashboard_bg_4 {
+    background-color: var(--card4);
+} 
+
+/* Parrafo de la card */
+.marco {
+   padding: 0.5rem;
+   border-radius: 10px;
+   margin-left: 0.4vw;
+}
+
+.card_descripcion { /*  Modificador de la fuente*/
+    font-size: 1.3vw;
+    margin-left: 0.2vw;
+}
+
+/* --- Card de Amanecer --- */
+.Fmatriz .secContainer .tiempo .main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1.8vh;
+}
+
+.tiempo .main .top {
+    margin-top: 0.3rem;
+}
+
+.tiempo .main .down {
+    margin-top: 0.4rem;
+}
+
+.card_dashboard_bg_5 {
+    background-color: var(--card5);
+}
+.card_dashboard_bg_6 {
+    background-color: var(--card6);
+}
+.card_dashboard_bg_7 {
+    background-color: var(--card7);
+}
+
+/* --- Card de Calidad del aire --- */
+.secContainer .grupo2 .calidad {
+    width: 21vw;
+}
+
+.secContainer .calidad .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.secContainer .calidad .main span p{
+    font-size: 1.3vw;
+    margin: -1.5rem 0rem 0rem 1rem;
+}
+
+.secContainer .calidad .main span h6  {
+    font-size: 0.8vw;
+    margin-left: 1rem;
+    color: var(--subTitulo)
+}
+
+.grafico {
+    margin-top: 0.3rem;
+    width: 100%;
+}
+
+.barra  {
+    position: relative;
+    margin: 0.7rem;
+    width: 90%;
+    padding: 3px;
+    background: rgb(0,255,16);
+    background: linear-gradient(90deg, rgba(0,255,16,1) 0%, rgba(142,255,0,1) 25%, rgba(255,239,0,1) 47%, rgba(255,132,0,1) 66%, rgba(183,5,5,1) 85%, rgba(128,0,255,1) 100%);
+    border-radius: 10px;
+    z-index: 1
+}
+
+.indicador {
+    position: relative;
+    top: -1.37rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    border: solid gray 2px;
+    z-index: 2
+}
+
+.pollution_1 {
+    left: 10%;
+}
+
+.pollution_2 {
+    left: 30%;
+}
+
+.pollution_3 {
+    left: 45%;
+}
+
+.pollution_4 {
+    left: 65%;
+}
+
+.pollution_5{
+    left: 86%;
+}
+
+/* Contenedor del lado derecho */
+.inferiorBoard .Smatriz {
+    width: 35%;
+    margin: 1.4rem 6rem 1.4rem 0rem;
+}
+
+.inferiorBoard .Smatriz .marco{
+    height: 97%;
+    background-color: var(--bgArticulo);
+    border-radius: 14px;
+}
+
+.Smatriz .marco .titulo {
+    justify-content: flex-start;
+    margin: 0.8rem 0.8rem 0rem 0.8rem ;
+    padding-bottom: 0.3rem;
+    color: var(--subTitulo);
+    border-bottom: 1px var(--subTitulo) solid;
+}
+
+.Smatriz .marco .titulo span{
+    margin-left: 0.8rem;
+}
+
+.Smatriz .marco .container  {
+    width: 100%;
+    height: 96%;
+}
+
+#map {
+    width: 90%;
+    height: 90%;
+    border-radius: 14px;
+}
+
+#map img {
+    width: 100%;
+    height: 97%;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1440px) {
+
+    .buscar {
+        width: 25vw;
+    }
+
+    #mainLogo {
+        font-size: 3vw;
+    }
+
+    .buscar .title .logo {
+        font-size: 3vw;
+    }
+
+    .historial .card .info span h4 {
+        font-size: 1vw;
+    }
+
+    .historial .card .tituloYtem .pais h3 {
+        font-size: 1.3vw;
+    }
+
+    #search {
+        font-size: 1.6vw;
+    }
+
+    .carrusel .card {
+        margin: 0.3vw;
+    }
+   
+    .diaHistorial .carrusel {
+        padding: 0;
+        height: auto;
+    }
+
+    .inferiorBoard {
+        margin-top: 0rem;
+    }
+
+    .inferiorBoard .Fmatriz .style {
+        height: 14vh;
+    }
+
+    .Fmatriz .titulo span h4 {
+        font-size: 1.2vw;
+
+    }
+
+    .Fmatriz .main {
+        margin-top: 1.3vh;
+        font-size: 1vw;
+    }
+
+    .Fmatriz .secContainer .tiempo .main {
+        margin-top: 0vh;
+    }
+
+    .Fmatriz .secContainer, 
+    .Fmatriz .container {
+        align-items: center;
+    }
+    
+    .Fmatriz .style .main {
+        margin-top: 0;
+        justify-content: flex-start;
+        height: 70%;
+    }
+
+    .Fmatriz .style .main .marco {
+        margin-left: 0vw;
+    }
+
+    .Fmatriz .style .main span p {
+        font-size: 1.4vw;
+    }
+
+    .secContainer .tiempo .titulo {
+        height: 27%;
+    }
+
+    .secContainer .tiempo .main {
+        justify-content: space-around;
+    }
+
+    .secContainer .tiempo .main .down {
+        margin-top: 0;
+    }
+
+    /* Ajuste del card timpo  */
+    .tiempo .main .top {
+        margin-top: 0rem;
+    }
+    .secContainer .tiempo .titulo {
+        height: 37%;
+    }
+    
+
+    .secContainer .tiempo .titulo span h4 {
+        font-size: 1vw;
+        padding-top: 12px;
+    }
+
+    .secContainer .calidad  .main {
+        margin-top: 0.3vh;
+    }
+
+    /* Ajuste del card de la calidad del aire  */
+    .secContainer .grupo2 .calidad {
+        height: 13.4vh;
+    }
+
+    .secContainer .calidad .main span p {
+        margin-top: 1vh;
+    }
+
+    .secContainer .calidad .main .grafico {
+        margin-top: 0rem;
+    }
+
+    .inferiorBoard .Smatriz {
+        margin: 7rem 4rem 1rem 0rem;
+    }
+
+    .inferiorBoard .Smatriz .marco {
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1024px ) {
+    .buscar {
+        width: 25vw;
+    }
+
+    main .dashboard {
+        width: 75vw;
+    }
+
+    /* Titulo principal */
+    .buscar .title {
+        margin: 30px 50px 10px 10px;
+    }
+
+    .tituloYtem .pais h3,
+    .tituloYtem .pais h4 {
+        font-size: 1.2vw;
+    }
+
+    .historial .card .info span h4 {
+        font-size: 1.1vw;
+    }
+    
+    /* Dashboard  */
+    main .dashboard {
+        overflow: auto;
+        height: 100vh;
+    }
+
+    .mainInfo .minYmax p {
+        font-size: 1.5vw;
+    }
+
+    .mainInfo .moreInfo .estado p {
+        font-size: 1.7vw;
+    }
+
+    /* Carrusel  */
+    .diaHistorial .carrusel {
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    .diaHistorial .carrusel .card {
+        margin: 0;
+        margin: 0px 5px;
+    }
+
+    .diaHistorial .carrusel .card div {
+        font-size: 1.4vw;
+    }
+
+    /* Parte inferior, tabla de informacion  */
+    .inferiorBoard {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 67vh;
+        margin-top: 0rem;
+    }
+
+    .card_descripcion {
+        font-size: 1.6vw;
+    }
+
+    .Fmatriz {
+        height: 30vh;
+        margin: 0;
+        overflow: visible;
+    }
+
+    .Smatriz {
+        height: 50vh;
+        width: 30vw;
+        margin: 0;
+        margin-top: 3vh;
+    }
+    
+    .Fmatriz .secContainer, 
+    .Fmatriz .container {
+        height: 15vh;
+    }
+
+    .Fmatriz .titulo span h4 {
+        font-size: 1.7vw;
+    }
+
+    .Fmatriz .titulo span {
+        margin-left: 0;
+    }
+
+    .Fmatriz .main {
+        font-size: 2.1vw;
+        margin-top: 0.5rem;
+    }
+
+    .Fmatriz .main span p {
+        margin-left: 0;
+    }
+
+    /* Card del timpo  */
+    .secContainer .tiempo .titulo span h4 {
+        font-size: 1.4vw;
+    }
+
+    .tiempo .main {
+        justify-content:start;
+    }
+
+    .secContainer .tiempo .titulo {
+        height: 35%;
+    }
+
+    .tiempo .main .top {
+        margin-top: 0.2rem;
+    }
+    
+    .tiempo .main .down,
+    .tiempo .main .top {
+        height: 4vh;
+    }
+
+    .card_dashboard {
+        height: 12vh;
+        width: 16vw;
+    }
+
+    .viento .main span,
+    .viento .main .marco,
+    .main span,
+    .main .marco{
+        margin-bottom: 0.8vh;
+    }
+
+    .tiempo .main .top span p,
+    .tiempo .main .marco,
+    .tiempo .main .down span p {
+        font-size: 1.2vw;
+    }
+
+    /* Card de calidad  */
+    .calidad {
+        height: 12vh;
+    }
+
+    .secContainer .calidad .main span p {
+        font-size: 1.4vw;
+        margin-top: 0vh;
+    }
+    
+    .secContainer .calidad .main span h6{
+        font-size: 1.1vw;
+    }
+
+    #subtitulo {
+        margin-bottom: 0;
+    }
+
+    /* Mapa */
+    .inferiorBoard .Smatriz {
+        margin: 0;
+        width: 30vw;
+        height: 30vh;
+    }
+
+    .Smatriz .marco .titulo {
+        font-size: 1.3vw;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 768px ) {
+    main .buscar {
+        width: 50vw;
+    }
+
+    main .buscar .title {
+        margin: 20px 50px 10px 15px;
+    }
+
+    main .buscar .title h1 {
+        font-size: 3.4vw;
+    }
+
+    main .buscar .title .logo{
+        font-size: 2.5vw;
+        margin-left: 1.3vw;
+    }
+
+    /* Card del buscador  */
+    .historial .card .tituloYtem .pais h4 {
+        font-size: 1.8vw;
+    }
+
+    .historial .card .tituloYtem .pais h3 {
+        font-size: 2vw;
+    }
+
+    .historial .card .tituloYtem .temperatura h3 {
+        font-size: 3.3vw;
+    }
+
+    .historial .card .info span h4 {
+        font-size: 1.6vw;
+    }
+
+    #search {
+        font-size: 1.8vw;
+    }
+
+    /* Inicio del dashboard  */
+    main .dashboard {
+        width: 100vw;
+    }
+
+    .dashboard .mainInfo {
+        margin-top: 0%;
+    }
+
+    #city {
+        font-size: 3vw;
+    }
+
+    #temp {
+        font-size: 4vw; 
+    }
+
+    #city {
+        font-size: 3.7vw;
+    }
+
+    #estado {
+        font-size: 1.9vw;
+    }
+
+    .mainInfo .moreInfo {
+        padding-right: 0px;
+    }
+
+    .mainInfo .minYmax p {
+        font-size: 2vw;
+    }
+
+    .mainInfo .moreInfo .estado p {
+        font-size: 2vw;
+    }
+
+    /* Carrusel  */
+    .diaHistorial .carrusel .card {
+      margin: 0px 6px;  
+    }
+
+    .diaHistorial .carrusel .card div {
+        margin: 8px 0px;
+        font-size: 1.8vw;
+    }
+
+    /* Mas informacion  */
+    .Fmatriz {
+        width: 70vw;
+    }
+
+    .card_dashboard {
+        width: 16vw;
+    }
+
+    .inferiorBoard .Fmatriz .main {
+        overflow-x: auto;
+        font-size: 2.7vw;
+    }
+
+    .Fmatriz .titulo span h4 {
+        font-size: 1.7vw;
+    }
+
+    .Fmatriz .main span p {
+        font-size: 1.9vw;
+    }
+
+    /* Card de tiempo  */
+    .secContainer .tiempo .titulo span h4 {
+        font-size: 1.6vw;
+    }
+
+    .tiempo .main .top span p, 
+    .tiempo .main .marco, 
+    .tiempo .main .down span p {
+        font-size: 1.6vw;
+    }
+
+    /* Card Calidad del aire  */
+    .calidad .main span p {
+        font-size: 2vw;
+    }
+
+    .secContainer .grupo2 .calidad {
+        width: 34vw;
+    }
+
+    .secContainer .calidad .main span {
+        margin-bottom: 0rem;
+    }
+
+    .secContainer .calidad .main span p {
+        font-size: 1rem;
+    }
+
+    .secContainer .calidad .main span h6 {
+        font-size: 0.7rem;
+    }
+    
+    /* -- mapa -- */
+    .inferiorBoard .Smatriz {
+        margin-top: 2vh;
+        width: 40vw;
+        height: auto;
+    }
+
+    #map {
+        width: 100%;
+        height: 92%;
+    }
+
+    .Smatriz .marco .titulo {
+        font-size: 1.7vw;
+    }
+    
+    /* stilos de el boton  */
+    .cleanLink {
+        color: var(--white);
+    }   
+
+    .nav-toggle {
+        color: var(--white);
+        background: none;
+        border: none;
+        font-size: 3.7vw;
+    }
+
+    .showNavbar {
+        position: relative;
+        left: 1rem;
+        top: 1rem;
+        font-size: 2.7vw;
+        display: block;
+        width: 10%;
+    }
+    .showNavbar a {
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 425px ) {
+    .ocultar_dashboard {
+        display: none;
+    }
+
+    main .buscar .title h1 {
+        font-size: 7vw;
+    }
+
+    main .buscar .title .logo {
+        font-size: 9vw;
+        padding-left: 10px;
+    }
+
+    #mainLogo {
+        font-size: 5.5vw;
+    }
+
+    #search {
+        font-size: 3.8vw;
+    }
+
+    .nav-toggle {
+        font-size: 6vw;
+    }
+
+    main .buscar {
+        width: 100vw;
+    }
+
+    main .buscar .title .logo {
+        font-size: 6vw;
+    }   
+
+    .getCountry {
+        margin-bottom: 1.4rem;
+    }
+
+    .getCountry #fetch {
+        font-size: 3vw;
+        width: 93%;
+    }
+
+    .styCard {
+        text-align: center;
+    }
+
+    .buscar .historial .card {
+        margin: 2vw auto;
+        width: 88%;
+    }
+
+    .historial .card .tituloYtem .pais h3 {
+        font-size: 4vw;
+    }
+
+    .historial .card .tituloYtem .pais h4 {
+        font-size: 4vw;
+    }
+
+    .historial .card .tituloYtem .temperatura h3 {
+        font-size: 9vw;
+    }
+
+    .historial .card .info span h4 {
+        font-size: 3.5vw;
+    }
+
+    main .dashboard {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    /* Informacion principal */
+    .dashboard .mainInfo {
+        margin-top:0;
+    }
+
+    #city {
+        font-size: 7vw;
+    }
+
+    #temp {
+        font-size: 8vw;
+    }
+
+    #max-min,
+    #estado {
+        font-size: 3.8vw;
+    }
+
+    .mainInfo .minYmax p {
+        font-size: 3vw;
+    }
+
+    .moreInfo {
+        width: 50vw;
+        height: 2vh;
+    }
+
+    .mainInfo .moreInfo .minYmax {
+        margin: 0%;
+    }
+
+    .mainInfo .moreInfo .estado p {
+        font-size: 3vw;
+    }
+
+    /* Historia del dia  */
+    .dashboard .diaHistorial {
+        margin: 9% auto 5% auto;
+    }
+    
+    .diaHistorial .carrusel {
+        height: 10vh;
+    }
+
+    .diaHistorial .carrusel .card {
+        margin: 0;
+    }
+
+    .diaHistorial .carrusel .card div {
+        margin: 7px 0px;
+        font-size: 2.8vw;
+    }
+
+    /* Mas informacion  */
+    .inferiorBoard {
+        height: auto;
+    }
+
+    .inferiorBoard .Fmatriz {
+        height: auto;
+        width: 100%;
+    }
+
+    .Fmatriz .container {
+        height: auto;
+        width: 100%;
+        justify-content: start;
+    }
+
+    .Fmatriz .secContainer {
+        margin-top: 0.23rem;
+        height: auto;
+    }
+
+    /* Dimensiones de la card  */
+    .card_dashboard {
+        width: 29vw;
+        height: 11vh;
+    }
+
+    /* Ajuste del titulo de las card */
+    .Fmatriz .titulo span h4 {
+        font-size: 2.6vw;
+        padding: 0.5rem;
+    }
+    
+    .inferiorBoard .Fmatriz .main {
+        font-size: 4vw;
+        margin-top: 0.5rem;
+    }
+
+    .Fmatriz .main span p {
+        font-size: 4vw;
+    }
+
+    .Fmatriz .secContainer, 
+    .Fmatriz .container {
+        flex-direction: column;
+    }
+
+    .inferiorBoard .Smatriz {
+        margin-top: 4rem;
+    }
+
+    /* card de tiempo  */
+    .secContainer .tiempo .titulo {
+        height: 32%;
+    }
+
+    .secContainer .tiempo .titulo span h4 {
+        font-size: 2.9vw;
+    }
+
+    .tiempo .main .top span p, 
+    .tiempo .main .marco, 
+    .tiempo .main .down span p {
+        font-size: 3vw;
+    }
+
+    .tiempo .main .down, 
+    .tiempo .main .top {
+        height: 3.5vh;
+    }
+
+    .tiempo .main .top {
+        margin-top: 0.3rem;
+    }
+
+    /* card de calida  */
+    .secContainer .grupo2 .calidad {
+        width: 60vw;
+        height: 14vh;
+    }
+
+    .inferiorBoard .Fmatriz .calidad .main {
+        margin-top: 0rem;
+    }   
+
+    #subtitulo {
+        margin-top: 0.2rem;
+    }
+
+    .secContainer .calidad .main .grafico {
+        margin-top: 0.2rem;
+    }
+
+    /* Seccion del mapa  */
+    .inferiorBoard .Smatriz {
+        margin-top: 1rem;
+        height: 40vh;
+        width: 70vw;
+    }
+
+    .inferiorBoard .Smatriz .marco {
+        height: 36vh;
+        width: 70vw;
+    }
+
+    .Smatriz .marco .titulo {
+        font-size: 2.8vw;
+    }
+
+    #map {
+        width: 99%;
+        height: 95%;
+    }
+
+}
+
+@media screen and (max-width: 320px ) {
+    /* Informacion principal  */
+    #pais {
+        font-size: 4vw;
+    }
+
+    #temp {
+        margin: 2%;
+    }
+
+    .dashboard .mainInfo {
+        margin-left: 15px;
+    }
+
+    .card_dashboard {
+        width: 40vw;
+        height: 11vh;
+    }
+
+    .mainInfo .moreInfo .minYmax {
+        margin: 1%;
+    }
+
+    .mainInfo .moreInfo .estado p,
+    .mainInfo .minYmax p {
+        font-size: 4vw;
+    }
+
+    /* Carrusel */
+    .diaHistorial .carrusel {
+        height: auto;
+        margin-top: 13px
+    }
+
+    .diaHistorial .carrusel .card div {
+        margin: 8px 0px;
+        font-size: 3.7vw;
+    }
+
+    .Fmatriz .titulo span h4 {
+        font-size: 4vw;
+        padding: 0.5rem;
+    }
+
+    .Fmatriz .main span p {
+        font-size: 4.5vw;
+    }
+
+    .tiempo .main .top span p, 
+    .tiempo .main .marco, 
+    .tiempo .main .down span p {
+        font-size: 4vw;
+    }
+
+    .tiempo .main .top {
+        margin-top: 0.1rem;
+    }
+
+    .secContainer .tiempo .titulo span h4 {
+        font-size: 3.8vw;
+    }
+
+    .secContainer .grupo2 .calidad {
+        width: 84vw;
+        height: 14vh;
+    }
+
+    .Smatriz .marco .titulo {
+        font-size: 0.84rem;
+    }
+
+    .inferiorBoard .Smatriz {
+    height: auto;
+    width: 100vw;
+    margin: auto;
+    margin-bottom: 15px;
+    }
+
+    .inferiorBoard .Smatriz .marco {
+        height: 36vh;
+        width: 80vw;
+        margin: auto;
+    }
+}

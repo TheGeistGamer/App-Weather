@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es,en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Frank">
+  <meta name="keywords" content="clima,climas,tiempo,weather,precion,tiempo,viento,temperatura,humedad,sensacion,localidad,">
+  <meta name="domain" content="">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  <script src="https://kit.fontawesome.com/b510f827ae.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/svg" href="/img/logo.svg" />
+  
+  <title>Mi Clima</title>
+</head>
+<body>
+<main class="flex-row">
+  <!-- Articulo Bucar -- -->
+  <aside class="buscar flex-column"> 
+    <!-- -- Buscador -- -->
+    <section class="buscador">
+      <div class="title flex-row-sp-jc">
+        <div class="climaLogo flex-row-center">
+          <a href="#"><h1 id="mainLogo">Clima</h1></a>
+          <a href="#" id="logo"><span><i class=" logo fa-solid fa-cloud-sun-rain"></i></span></a>
+        </div>
+        <div class="showNavbarAside ocultar"> <!-- Icono del navbar-->
+          <a class="cleanLink" href="#">
+            <button class="nav-toggle-Aside">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Recuadro -->
+      <div class="getCountry"> 
+        <form id="form">
+          <input type="text" id="search"  placeholder="Buscar ciudad" autocomplete="off">
+        </form>
+      </div>  
+      <!-- Card de busqueda -->
+      <div id="historial" class="historial"><!-- Cards --></div>
+      
+    </section> 
+  </aside>
+  
+  <!-- -- Articulo dashboard --  -->
+  <article id="dashboard" class=" ocultar_dashboard dashboard flex-column"> 
+
+    <div class="showNavbar"> <!-- Icono del navbar-->
+      <a class="cleanLink" href="#">
+        <button class="nav-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </a>
+    </div>
+
+    <section class="mainInfo flex-column-center"> <!-- Sec Informacion Principal-->
+        <div class="country"><h2 id="city"></h2></div>
+        <div id="temp"></div>
+        <div class="moreInfo flex-column">
+          <div class="minYmax">
+            <p id="max-min"></p>
+          </div>
+          <div class="estado"><p id="estado" ></p></div>
+        </div>
+    </section> 
+
+    <section class="diaHistorial"> <!-- Historial del clima en el dia -->
+      <div id="carrusel" class="carrusel flex-row-center"></div>
+    </section>
+
+    <section class="inferiorBoard flex-row">
+    <div class="Fmatriz"> <!-- Matriz de informacion IZQ-->
+      <div class="container flex-row">
+        <div class="grupo1 flex-row">
+          <div class="presion card_dashboard">
+            <div class="titulo card_dashboard_bg_1">
+              <span><h4>Presión</h4></span>
+            </div>
+  
+            <div class="main flex-row-center">
+                <div class="marco"><i class="fa-solid fa-gauge"></i></div>
+                <span><p class="card_descripcion" id="presion"></p></span>
+            </div>
+          </div>
+  
+          <div class="humedad card_dashboard">
+            <div class="titulo card_dashboard_bg_2 ">
+              <span><h4>Humedad</h4></span>
+            </div>
+  
+            <div class="main flex-row-center">
+              <div class="marco "><i class="fa-solid fa-droplet"></i></div>
+              <span><p class="card_descripcion" id="humedad"></p></span>
+            </div>
+          </div>
+        </div>
+        <div class="grupo2 flex-row">
+          <div class="visibilidad card_dashboard">
+            <div class="titulo card_dashboard_bg_3">
+              <span><h4>Visibilidad</h4></span>
+            </div>
+            <div class="main flex-row-center">
+              <div class="marco"><i class="fa-solid fa-eye"></i></div>
+              <span><p class="card_descripcion" id="visibilidad"></p></span>
+            </div>
+          </div>
+          <div class="sensacion card_dashboard">
+            <div class="titulo card_dashboard_bg_4">
+              <span><h4>Sensación</h4></span>
+            </div>
+            <div class="main flex-row-center">
+              <div class="marco"><i class="fa-solid fa-temperature-half"></i></div>
+              <span><p class="card_descripcion" id="sensacion"></p></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="secContainer flex-row">
+        <div class="grupo1 flex-row">
+          <div class="viento card_dashboard">
+            <div class="titulo card_dashboard_bg_5">
+              <span><h4>Viento</h4></span>
+            </div>
+            <div class="main flex-row-center">
+              <div class="marco"><i class="fa-solid fa-wind"></i></div>
+              <span><p class="card_descripcion" id="viento"></p></span>
+            </div>
+          </div>
+  
+          <div class="tiempo card_dashboard">
+            <div class="titulo card_dashboard_bg_6">
+              <span><h4 >Amanecer / Ocaso</h4></span>
+            </div>
+            <div class="main">
+              <div class="top flex-row-center">
+                <div class="marco"><i class="fa-solid fa-cloud-sun"></i></div>
+                <span><p id="sunrise" class="fnt-1vw"></p></span>
+              </div>
+              <div class="down flex-row-center">
+                <div class="marco"><i class="fa-solid fa-cloud-moon"></i></div>
+                <span><p id="sunset" class="fnt-1vw"></p></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grupo2 flex-row">
+
+          <div class="calidad card_dashboard">
+            <div class="titulo card_dashboard_bg_7">
+              <!-- <i class="fa-solid fa-hurricane"></i> -->
+              <span><h4>Calidad del Aire</h4></span>
+            </div>
+            <div class="main">
+              <span><p  id="estadoCalidad"></p></span>
+              <span id="subtitulo"><h6 id="infoCalidad"></h6></span>
+              <div class="grafico">
+                <div class="barra"></div>
+                <div id="calidad" class="indicador inicio"></div>
+              </div>          
+            </div>
+          </div>
+        </div>  
+
+      </div>
+    </div>
+
+    <div class="Smatriz">
+      <div class="marco flex-column">
+        <div class="titulo flex-row-center fnt-1vw">
+          <i class="fa-solid fa-umbrella"></i>
+          <span><p>Precipitación</p></span>
+        </div>
+        <div class="container flex-row-center-jc">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+  </article>
+</main>
+
+<script type="module" src="/js/class/IconWeather.js"></script>
+<script type="module" src="/js/class/dataWeather.js"></script>
+<script type="module" src="/js/class/dataCity.js"></script>
+
+<script type="module" src="/js/interface/submit.js"></script>
+<script type="module" src="/js/crearCard.js"></script>
+
+<script type="module" src="/main.js"></script>
+
+<script type="module" src="/js/api/getApiCitys.js"></script>
+<script type="module" src="/js/api/getApiWeather.js"></script>
+<script type="module" src="/js/api/mapa.js"></script>
+
+<script type="module" src="/js/config/operaciones.js"></script>
+<script type="module" src="/js/config/calidad.js"></script>
+
+<script type="module" src="/js/interface/responsive.js"></script>
+<script type="module" src="/js/interface/logicaDom.js"></script>
+<script type="module" src="/js/interface/background.js"></script>
+ 
+</body>
+</html>

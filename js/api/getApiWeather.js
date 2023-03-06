@@ -10,9 +10,9 @@ export default function getWeather(arr) {
     let urls = [
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=883a5f6c5c2bc1346b5f98a3724ff602&units=Metric&lang=sp`,    // Clima
 
-        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=883a5f6c5c2bc1346b5f98a3724ff602`,                    // Contaminacion
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=883a5f6c5c2bc1346b5f98a3724ff602`,                    // Contaminacion
 
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=883a5f6c5c2bc1346b5f98a3724ff602&units=Metric&lang=sp`,   // Prediccion del clima
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=883a5f6c5c2bc1346b5f98a3724ff602&units=Metric&lang=sp`,   // Prediccion del clima
 
         `https://timezone.abstractapi.com/v1/current_time/?api_key=79badbb040c74f4bb72a661a313123a5&location=${lat},${lon}`                     // Tiempo
         ]   

@@ -1,6 +1,7 @@
 :root {
     font-family: 'Nunito', Helvetica, sans-serif;
     --weatherBG: black url(/img/background/frozen-201495_1920.jpg);
+
     --white: #fff;
     --subTitulo: #adb5bd;
     --bgArticulo: rgba(10, 5, 42, 0.7);

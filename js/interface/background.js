@@ -1,7 +1,7 @@
 export default function background(estado, tiempo) {
 
     const bg = (clima) => {
-        document.documentElement.style.setProperty('--weatherBG', `url(/img/background/${clima}.jpg`);
+        document.documentElement.style.setProperty('--weatherBG', `url(/img/background/${clima}.jpg)`);
         card_bg(clima);
     };
 

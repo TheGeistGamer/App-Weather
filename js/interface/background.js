@@ -1,7 +1,8 @@
 export default function background(estado, tiempo) {
 
     const bg = (clima) => {
-        document.documentElement.style.setProperty('--weatherBG', `url(/img/background/${clima}.jpg)`);
+        // document.documentElement.style.setProperty('--weatherBG', `url(/img/background/${clima}.jpg)`);
+        document.documentElement.style.setProperty('--weatherBG', `url(${clima})`);
         card_bg(clima);
     };
 
@@ -12,42 +13,41 @@ export default function background(estado, tiempo) {
     
     function card_bg(clima) {
         const bg = document.getElementById('card');
-        bg.style.background = `url(/img/background/${clima}.jpg)`;
+        bg.style.background = `url(${clima})`;
     };
 
     let time = tiempo.split(' ');
     let onlyHour = time[0].split(':')[0];
     time = time[1]; // a.m. y p.m.
- 
 
     switch (estado) {
         // -- Despejado --
-        case 'Cielo claro': setBackGround(time ,onlyHour, 'dia/clear_day', 'dia/clear_night'); break;
+        case 'Cielo claro': setBackGround(time ,onlyHour, 'https://i.imgur.com/qrLQMdL.jpg', 'https://i.imgur.com/5i9bU3v.jpg'); break;
 
         // -- Nubes --
-        case 'Nubes dispersas': setBackGround(time ,onlyHour, 'nubes/algo_nubes/something_day', 'nubes/algo_nubes/something_night');break; 
+        case 'Nubes dispersas': setBackGround(time ,onlyHour, 'https://i.imgur.com/2Z4ws7e.jpg', 'https://i.imgur.com/ibu4Cm9.jpg');break; 
 
-        case 'Algo de nubes': setBackGround(time ,onlyHour, 'nubes/algo_nubes/something_day', 'nubes/algo_nubes/something_night'); break;  
+        case 'Algo de nubes': setBackGround(time ,onlyHour, 'https://i.imgur.com/2Z4ws7e.jpg', 'https://i.imgur.com/ibu4Cm9.jpg'); break;  
 
-        case 'Nubes': setBackGround(time ,onlyHour, 'nubes/nubes/clouds_day', 'nubes/nubes/clouds_night'); break
-        ;
-        case 'Muy nuboso':  setBackGround(time ,onlyHour, 'nubes/muy_nubuso/heavy_cloud_day', 'nubes/muy_nubuso/heavy_cloud_night'); break;
+        case 'Nubes': setBackGround(time ,onlyHour, 'https://i.imgur.com/HpBRDUA.jpg', 'https://i.imgur.com/nVOBUmV.jpg'); break;
+
+        case 'Muy nuboso':  setBackGround(time ,onlyHour, 'https://i.imgur.com/knRHj48.jpg', 'https://i.imgur.com/XBCwbz9.jpg'); break;
 
         // -- Lluvia --
-        case 'Lluvia ligera': setBackGround(time ,onlyHour, 'lluvia/lluvia_ligera/day', 'lluvia/lluvia_ligera/night'); break;
+        case 'Lluvia ligera': setBackGround(time ,onlyHour, 'https://i.imgur.com/tjY172A.jpg', 'https://i.imgur.com/W31ukmk.jpg'); break;
 
-        case 'Lluvia moderada': setBackGround(time ,onlyHour, 'lluvia/lluvia_moderada/day', 'lluvia/lluvia_moderada/night'); break;
+        case 'Lluvia moderada': setBackGround(time ,onlyHour, 'https://i.imgur.com/bzVYrj8.jpg', 'https://i.imgur.com/W31ukmk.jpg'); break;
+
+        case 'Lluvia de gran intensidad': setBackGround(time ,onlyHour, 'https://i.imgur.com/2waxtNt.jpg', 'https://i.imgur.com/2waxtNt.jpg'); break;
 
         // -- Niebla --
-        case 'Niebla': setBackGround(time ,onlyHour, 'niebla/fog', 'niebla/fog'); break;
+        case 'Niebla': setBackGround(time ,onlyHour, 'https://i.imgur.com/sJzRSBG.jpg', 'https://i.imgur.com/sJzRSBG.jpg'); break;
 
         // -- Nevada --
-        case 'Nevada ligera': setBackGround(time ,onlyHour, 'snowfall/nevada_ligera/snow_day', 'snowfall/nevada_ligera/snow_night'); break;
-
-        case 'Lluvia de gran intensidad': setBackGround(time ,onlyHour, 'lluvia/Heavy_rain/heavy_rain', 'lluvia/Heavy_rain/heavy_rain'); break;
+        case 'Nevada ligera': setBackGround(time ,onlyHour, 'https://i.imgur.com/pBvNGot.jpg', 'https://i.imgur.com/1oUFViq.jpg'); break;
 
         default:
-            setBackGround(time ,onlyHour, 'day', 'night'); break;
+            setBackGround(time ,onlyHour, 'https://i.imgur.com/Dk7YmLc.jpg', 'https://i.imgur.com/T76VSC2.jpg'); break;
 
     }
 
